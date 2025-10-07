@@ -326,7 +326,7 @@
   }
 
   .view_skeleton {
-    background-color: #a1a1aa;
+    background-color: #aaaaa1;
     height: 2.5rem;
     width: 6rem;
     border-radius: 0.5rem;
@@ -581,7 +581,6 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-radius: 0.5rem;
-    text-transform: capitalize;
   }
 
   .category-tag {
@@ -631,7 +630,7 @@
 
   /* Custom theme variables from tailwind.config.ts */
   --breakpoint-xs: 475px;
-  --primary-100: #ffe8f0;
+  --primary-100: #f8f8c8;
   --primary: #f8991d;
   --secondary: #fbe843;
   --black-100: #333333;
