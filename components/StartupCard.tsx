@@ -40,8 +40,8 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/500x500/png"
-            alt="placeholder"
+            src={author?.image!}
+            alt={author?.name!}
             width={48}
             height={48}
             className="rounded-full"
@@ -68,3 +68,20 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 };
 
 export default StartupCard;
+
+export const StartupCardSkeleton = () => {
+  return (
+    <>
+      {[0, 1, 2, 3].map((_, i: number) => (
+        <li key={i}>
+          <div className="startup-card animate-pulse p-4" aria-hidden>
+            <div className="startup-card_img bg-black/10 h-40 mb-4 rounded-xl" />
+            <div className="h-6 bg-black/10 rounded w-3/4 mb-2" />
+            <div className="h-4 bg-black/10 rounded w-1/2 mb-2" />
+            <div className="h-4 bg-black/10 rounded w-1/3" />
+          </div>
+        </li>
+      ))}
+    </>
+  );
+};

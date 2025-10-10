@@ -1,18 +1,29 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import { STARTUPS_QUERY_BY_ID } from "@/sanity/lib/queries";
+import {
+  PLAYLIST_BY_SLUG_QUERY,
+  STARTUPS_QUERY_BY_ID,
+} from "@/sanity/lib/queries";
 import Link from "next/link";
 import React, { Suspense } from "react";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
+import StartupCard from "@/components/StartupCard";
+import { StartupTypeCard } from "../../page";
 
 const md = markdownit();
 // export const experimental_ppr = true;
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const post = await client.fetch(STARTUPS_QUERY_BY_ID, { id });
+
+  // parallel data fetching, to save time, since independent queries
+  const [post, { select: editorPicks }] = await Promise.all([
+    client.fetch(STARTUPS_QUERY_BY_ID, { id }),
+    client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "editor-picks" }),
+  ]);
+
   const parsedContent = md.render(post.pitch || "");
 
   if (!post) {
@@ -63,7 +74,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
             <article
-              className="prose max-w-4xl font-work-sans break-all"
+              className="markdown-body max-w-4xl mx-auto"
               dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ) : (
@@ -72,7 +83,18 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
 
         <hr className="divider" />
-        {/* TODO: Editor Selected Startups */}
+
+        {editorPicks?.length > 0 && (
+          <div className="max-w-4xl mx-auto">
+            <p className="text-30-semibold">Editor Picks</p>
+            <ul className="mt-7 card_grid-sm">
+              {editorPicks.map((post: StartupTypeCard, i: number) => (
+                <StartupCard key={i} post={post} />
+              ))}
+            </ul>
+          </div>
+        )}
+
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View id={id} />
         </Suspense>

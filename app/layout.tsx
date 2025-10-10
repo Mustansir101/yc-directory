@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
+import { Toaster } from "@/components/ui/sonner";
+import "github-markdown-css/github-markdown.css";
 
 const workSans = localFont({
   src: [
@@ -66,9 +68,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${workSans.variable}`}>
+      <body className={`${workSans.variable} bg-white`}>
         {children}
-        {/* chutiya prettier */}
+        <Toaster
+          richColors
+          theme="light"
+          toastOptions={{
+            style: {
+              color: "black",
+              borderRadius: "12px",
+              background: "var(--primary-100)",
+              fontSize: "15px",
+              fontWeight: 500,
+              border: "2px solid var(--primary)",
+              boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
+            },
+            className: "shadow-lg backdrop-blur-md",
+          }}
+        />
       </body>
     </html>
   );

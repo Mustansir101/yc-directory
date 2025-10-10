@@ -17,7 +17,6 @@ export default async function Home({
   const params = { search: query || null };
   const posts = await client.fetch(STARTUPS_QUERY, params);
   const session = await auth();
-  console.log(session?.id);
 
   return (
     <>

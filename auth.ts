@@ -37,7 +37,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return true;
     },
 
+    // made changes since newly created Startups were getting no author id
     async jwt({ token, account, profile }) {
+      // On initial sign-in
       if (account && profile) {
         const user = await client
           .withConfig({ useCdn: false })
@@ -47,6 +49,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           token.id = user._id;
         }
       }
+
+      // On subsequent calls (no account/profile)
+      if (!token.id && token.email) {
+        const user = await client
+          .withConfig({ useCdn: false })
+          .fetch(AUTHOR_BY_GITHUB_ID_QUERY, { email: token.email });
+
+        if (user) {
+          token.id = user._id;
+        }
+      }
+
       return token;
     },
 
