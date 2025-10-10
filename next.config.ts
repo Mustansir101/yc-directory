@@ -17,14 +17,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    // ppr: "incremental",
-  },
-  devIndicators: {
-    // appIsrStatus: true,
-    // buildActivity: true,
-    buildActivityPosition: "bottom-right",
-  },
+  // Keep experimental features empty. Do not enable `experimental.ppr` unless
+  // you're running the latest Next.js canary that supports it.
+  experimental: {},
 };
 
 export default nextConfig;
