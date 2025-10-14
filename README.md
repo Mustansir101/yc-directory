@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  YC Directory
 
-## Getting Started
+A sleek **YC-style startup directory** built with **Next.js (App Router)** and **TypeScript**, featuring Markdown-based startup pitches, user profiles, and a clean Tailwind UI. Powered by **Sanity CMS** for content management and **NextAuth** for secure authentication — designed for speed, simplicity, and modern UX.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Highlights
+- 🏗️ Public directory to **add, browse, and view startups** with Markdown-supported pitches.  
+- 👤 **User profile pages** displaying startups owned or associated with each user.  
+- ⚙️ **Sanity CMS** for flexible, real-time content management.  
+- 🔐 **NextAuth** integration for seamless and secure user authentication.  
+- ⚡ **React Suspense** + **Server Components** for fast loading and skeleton placeholders.  
+- 🎨 **Tailwind CSS** + **github-markdown-css** for responsive and polished UI styling.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Tech Stack
+**Next.js · TypeScript · Sanity · NextAuth · Tailwind CSS · markdown-it · github-markdown-css**
 
-## Learn More
+## ⚡Quick start
 
-To learn more about Next.js, take a look at the following resources:
+**Clone**: 
+`git clone https://github.com/<you>/yc-directory.git && cd yc-directory`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Install:**
+`npm install`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create `.env.local` with your Sanity + NextAuth settings (SANITY_PROJECT_ID, SANITY_DATASET, NEXTAUTH_SECRET, etc.).
 
-## Deploy on Vercel
+**Run dev:**
+`npm run dev`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Build & start (production):**
+`npm run build && npm run start`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌐 Live Demo
+👉 [startup-directory-drab.vercel.app](https://startup-directory-drab.vercel.app/)
