@@ -68,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${workSans.variable} bg-white`}>
+      <body className={`${workSans.variable} bg-white overflow-x-hidden`}>
         {children}
         <Toaster
           richColors
