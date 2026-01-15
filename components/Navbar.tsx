@@ -38,8 +38,11 @@ const Navbar = async () => {
             </>
           ) : (
             <form action={login}>
-              <button type="submit">
-                <span>Login</span>
+              <button
+                type="submit"
+                className="border border-black rounded-3xl px-4 py-1 hover:bg-[#222222] hover:text-white transition-colors"
+              >
+                <span>GitHub Login</span>
               </button>
             </form>
           )}
