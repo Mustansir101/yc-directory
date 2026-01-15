@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import SearchForm from "@/components/SearchForm";
+import StartupSourceToggle from "@/components/StartupSourceToggle";
 import StartupCard from "@/components/StartupCard";
 import { client } from "@/sanity/lib/client";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
@@ -30,6 +31,7 @@ export default async function Home({
           Competitions.
         </p>
         <SearchForm query={query} />
+        <StartupSourceToggle active="community" />
       </section>
 
       <section className="section_container">
