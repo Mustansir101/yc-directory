@@ -36,12 +36,18 @@ created an import script (stores data in MongoDB; the app reads from MongoDB aft
 
 ## Screenshots
 
+### YC Startups
+
 ![alt text](media/image-1.png)
 
 ![alt text](media/image-2.png)
 
 ![alt text](media/image-3.png)
 
+### Community Startups
+
 ![alt text](media/image.png)
 
 ![alt text](media/image-4.png)
+
+![alt text](media/image5.png)
