@@ -21,7 +21,7 @@ export default async function Home({
 
   return (
     <>
-      <section className="pink_container">
+      <section className="!min-h-[200px] pink_container">
         <p className="tag">Pitch, Vote and Grow</p>
         <h1 className="heading">
           Pitch your startup, <br /> connect with entrepreneurs

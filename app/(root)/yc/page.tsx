@@ -24,7 +24,7 @@ export default async function YcStartupsPage({
 
   return (
     <>
-      <section className="pink_container">
+      <section className="!min-h-[200px] pink_container">
         <p className="tag">Browse YC Companies</p>
         <h1 className="heading">Explore YC startups</h1>
         <p className="sub-heading !max-w-3xl">
